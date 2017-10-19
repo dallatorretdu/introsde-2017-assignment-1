@@ -14,6 +14,10 @@ import org.xml.sax.InputSource;
 import unitn.introsde.dallatorre.people.PeopleXPathNavigatorFunctions;
 
 class PeopleXPathNavigatorTest {
+	
+	private void assertEmptyString(String string) {
+		assertTrue(string.isEmpty());
+	}
 
 	private static Document loadXMLFromString(String xml) throws Exception
 	{
@@ -74,19 +78,19 @@ class PeopleXPathNavigatorTest {
 		}
 	
 	@Test
-	void getActivityForEmptyXMLReturnsNull() throws Exception {
+	void getActivityForEmptyXMLReturnsEmptyString() throws Exception {
 		Document document = loadXMLFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> "
 				+ "<people>"
 				+ "</people>");
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
-		assertNull(navigator.getActivity(document, 1));
+		assertEmptyString(navigator.getActivity(document, 1));
 	}
 	
 	@Test
-	void getActivityForNonExistentIDReturnsNull() throws Exception {
+	void getActivityForNonExistentIDReturnsEmptyString() throws Exception {
 		Document document = getValidXmlSampleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
-		assertNull(navigator.getActivity(document, 2));
+		assertEmptyString(navigator.getActivity(document, 2));
 	}
 	
 	@Test
@@ -149,25 +153,25 @@ class PeopleXPathNavigatorTest {
 		assertEquals(countLines(people),11);
 	}
 	@Test
-	void getAllPeopleWithActivityInexistentReturnNull() throws Exception {
+	void getAllPeopleWithActivityInexistentReturnEmptyString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017-10-13","<");
-		assertNull(people);
+		assertEmptyString(people);
 	}
 	@Test
-	void getAllPeopleWithActivityUsingMalformedDataReturnsNull() throws Exception {
+	void getAllPeopleWithActivityUsingMalformedDataReturnsEmptyString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017100-S3","<");
-		assertNull(people);
+		assertEmptyString(people);
 	}
 	@Test
-	void getAllPeopleWithActivityUsingMalformedOperatorReturnsNull() throws Exception {
+	void getAllPeopleWithActivityUsingMalformedOperatorReturnsEmptyString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017-10-13","ASD");
-		assertNull(people);
+		assertEmptyString(people);
 	}
 
 }

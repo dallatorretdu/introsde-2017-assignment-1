@@ -11,7 +11,7 @@ import org.w3c.dom.NodeList;
 
 public class PeopleXPathNavigatorFunctions {
 	
-	private NodeList getPeopleXpath(Document document, String path) throws XPathExpressionException {
+	private NodeList getPeopleXpathRes(Document document, String path) throws XPathExpressionException {
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
 		XPathExpression expr;
@@ -21,85 +21,59 @@ public class PeopleXPathNavigatorFunctions {
 		return (NodeList) result;
 	}
 
-	private NodeList getActivityPreferenceXpath(Document document, String path, int id) throws XPathExpressionException {
-		return getPeopleXpath(document, "/person[@id="+id+"]/activitypreference"+path);
-	}
-	
-	public String getActivity(Document document, int id) {
-		String path = "";
+
+	private NodeList executePeopleXPath(Document document, String path) {
 		NodeList nodes = null;
 		try {
-			nodes = getActivityPreferenceXpath(document, path, id);
+			nodes = getPeopleXpathRes(document, path);
 		} catch (XPathExpressionException e) {
 			return null;
 		}
-		
 		if (nodes.getLength()==0) {
 			return null;
 		}
+		return nodes;
+	}
+	
+	public String getActivity(Document document, int id) {
+		String path = "/person[@id="+id+"]/activitypreference";
+		NodeList nodes = executePeopleXPath(document, path);
+		if(nodes == null)
+			return "";
 		return nodes.item(0).getTextContent();
 			
 		
 	}
 	
 	public String getActivityDescription(Document document, int id) {
-		String path = "/description/text()";
-		NodeList nodes = null;
-		try {
-			nodes = getActivityPreferenceXpath(document, path, id);
-		} catch (XPathExpressionException e) {
-			return null;
-		}
-		
-		if (nodes.getLength()==0) {
-			return null;
-		}
+		String path = "/person[@id="+id+"]/activitypreference/description/text()";
+		NodeList nodes = executePeopleXPath(document, path);
+		if(nodes == null)
+			return "";
 		return nodes.item(0).getNodeValue();
 	}
 
 	public String getActivityPlace(Document document, int id) {
-		String path = "/place/text()";
-		NodeList nodes = null;
-		try {
-			nodes = getActivityPreferenceXpath(document, path, id);
-		} catch (XPathExpressionException e) {
-			return null;
-		}
-		
-		if (nodes.getLength()==0) {
-			return null;
-		}
+		String path = "/person[@id="+id+"]/activitypreference/place/text()";
+		NodeList nodes = executePeopleXPath(document, path);
+		if(nodes == null)
+			return "";
 		return nodes.item(0).getNodeValue();
 	}
 
 	public String getPeopleDetailedList(Document document) {
 		String path = "";
-		NodeList nodes = null;
-		try {
-			nodes = getPeopleXpath(document, path);
-		} catch (XPathExpressionException e) {
-			return null;
-		}
-		
-		if (nodes.getLength()==0) {
-			return null;
-		}
+		NodeList nodes = executePeopleXPath(document, path);
+		if(nodes == null)
+			return "";
 		return nodes.item(0).getTextContent();
 	}
 
 	public String getPeopleWithActivityStartDate(Document document, String date, String operator) {
 		String path = "/person[number(translate(substring(activitypreference/startdate/text(),1,10),'-','')) "+operator+" number(translate(\""+date+"\",'-',''))]";
-		NodeList nodes = null;
-		try {
-			nodes = getPeopleXpath(document, path);
-		} catch (XPathExpressionException e) {
-			return null;
-		}
-		if(nodes.getLength()==0) {
-			return null;
-		}
-		
-
+		NodeList nodes = executePeopleXPath(document, path);
+		if(nodes == null)
+			return "";
 		String outputList = "";
 		for (int i = 0; i < nodes.getLength(); i++) {
 			outputList += nodes.item(i).getTextContent();
