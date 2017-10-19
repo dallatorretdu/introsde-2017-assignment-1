@@ -9,22 +9,20 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-import unitn.introsde.dallatorre.people.generated.ActivityPreference;
-
 public class PeopleXPathNavigatorFunctions {
 	
 	private NodeList getPeopleXpath(Document document, String path) throws XPathExpressionException {
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
 		XPathExpression expr;
-		expr = xpath.compile("/people/person"+path);
+		expr = xpath.compile("/people"+path);
 		Object result;
 		result = expr.evaluate(document, XPathConstants.NODESET);
 		return (NodeList) result;
 	}
 
 	private NodeList getActivityPreferenceXpath(Document document, String path, int id) throws XPathExpressionException {
-		return getPeopleXpath(document, "[@id="+id+"]/activitypreference"+path);
+		return getPeopleXpath(document, "/person[@id="+id+"]/activitypreference"+path);
 	}
 	
 	public String getActivity(Document document, int id) {
@@ -87,6 +85,26 @@ public class PeopleXPathNavigatorFunctions {
 			return null;
 		}
 		return nodes.item(0).getTextContent();
+	}
+
+	public String getPeopleWithActivityStartDate(Document document, String date, String operator) {
+		String path = "/person[number(translate(substring(activitypreference/startdate/text(),1,10),'-','')) "+operator+" number(translate(\""+date+"\",'-',''))]";
+		NodeList nodes = null;
+		try {
+			nodes = getPeopleXpath(document, path);
+		} catch (XPathExpressionException e) {
+			return null;
+		}
+		if(nodes.getLength()==0) {
+			return null;
+		}
+		
+
+		String outputList = "";
+		for (int i = 0; i < nodes.getLength(); i++) {
+			outputList += nodes.item(i).getTextContent();
+		}
+		return outputList;
 	}
 
 }
