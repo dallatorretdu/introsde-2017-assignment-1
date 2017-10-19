@@ -12,23 +12,26 @@ import org.w3c.dom.NodeList;
 import unitn.introsde.dallatorre.people.generated.ActivityPreference;
 
 public class PeopleXPathNavigatorFunctions {
-
-	private NodeList getXpath(Document document, String path, int id) throws XPathExpressionException {
+	
+	private NodeList getPeopleXpath(Document document, String path) throws XPathExpressionException {
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
-		NodeList nodes;
 		XPathExpression expr;
-		expr = xpath.compile("/people/person[@id="+id+"]/activitypreference"+path);
+		expr = xpath.compile("/people/person"+path);
 		Object result;
 		result = expr.evaluate(document, XPathConstants.NODESET);
 		return (NodeList) result;
+	}
+
+	private NodeList getActivityPreferenceXpath(Document document, String path, int id) throws XPathExpressionException {
+		return getPeopleXpath(document, "[@id="+id+"]/activitypreference"+path);
 	}
 	
 	public String getActivity(Document document, int id) {
 		String path = "";
 		NodeList nodes = null;
 		try {
-			nodes = getXpath(document, path, id);
+			nodes = getActivityPreferenceXpath(document, path, id);
 		} catch (XPathExpressionException e) {
 			return null;
 		}
@@ -45,7 +48,7 @@ public class PeopleXPathNavigatorFunctions {
 		String path = "/description/text()";
 		NodeList nodes = null;
 		try {
-			nodes = getXpath(document, path, id);
+			nodes = getActivityPreferenceXpath(document, path, id);
 		} catch (XPathExpressionException e) {
 			return null;
 		}
@@ -60,7 +63,7 @@ public class PeopleXPathNavigatorFunctions {
 		String path = "/place/text()";
 		NodeList nodes = null;
 		try {
-			nodes = getXpath(document, path, id);
+			nodes = getActivityPreferenceXpath(document, path, id);
 		} catch (XPathExpressionException e) {
 			return null;
 		}
@@ -69,6 +72,21 @@ public class PeopleXPathNavigatorFunctions {
 			return null;
 		}
 		return nodes.item(0).getNodeValue();
+	}
+
+	public String getPeopleDetailedList(Document document) {
+		String path = "";
+		NodeList nodes = null;
+		try {
+			nodes = getPeopleXpath(document, path);
+		} catch (XPathExpressionException e) {
+			return null;
+		}
+		
+		if (nodes.getLength()==0) {
+			return null;
+		}
+		return nodes.item(0).getTextContent();
 	}
 
 }

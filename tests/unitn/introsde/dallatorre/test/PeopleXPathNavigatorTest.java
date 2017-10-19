@@ -41,6 +41,11 @@ class PeopleXPathNavigatorTest {
 		return document;
 	}
 	
+	private static int countLines(String str){
+		   String[] lines = str.split("\r\n|\r|\n");
+		   return  lines.length;
+		}
+	
 	@Test
 	void getActivityForEmptyXMLReturnsNull() throws Exception {
 		Document document = loadXMLFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> "
@@ -86,6 +91,16 @@ class PeopleXPathNavigatorTest {
 		String activityPreference = navigator.getActivityPlace(document, 1);
 		assertNotNull(activityPreference);
 		assertEquals(activityPreference,"Gocciadoro");
+	}
+	
+	@Test
+	void getAllPeopleReturnCorrectString() throws Exception {
+		Document document = getValidXmlSampleDocument();
+		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
+		String people = navigator.getPeopleDetailedList(document);
+		assertNotNull(people);
+		assertEquals(people.trim().substring(0, 7),"Bond R.");
+		assertEquals(countLines(people),11);
 	}
 	
 
