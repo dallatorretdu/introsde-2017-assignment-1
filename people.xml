@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<people>
+    <person id="1">
+        <firstname>Mirco</firstname>
+        <lastname>Stablum</lastname>
+        <birthdate>1993-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.628+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="2">
+        <firstname>Stefano</firstname>
+        <lastname>Tavonatti</lastname>
+        <birthdate>1993-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.632+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="3">
+        <firstname>Manuel</firstname>
+        <lastname>Dezulian</lastname>
+        <birthdate>1993-11-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Biking</name>
+            <description>Sample Description</description>
+            <place>Cycle lane 1</place>
+            <startdate>2017-10-18T15:57:55.632+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="4">
+        <firstname>Massimo</firstname>
+        <lastname>Stablum</lastname>
+        <birthdate>1995-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.632+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="5">
+        <firstname>Emilia</firstname>
+        <lastname>Chicca</lastname>
+        <birthdate>1992-02-01Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.633+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="6">
+        <firstname>John</firstname>
+        <lastname>Doe</lastname>
+        <birthdate>1993-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Biking</name>
+            <description>Sample Description</description>
+            <place>Cycle lane 1</place>
+            <startdate>2017-10-18T15:57:55.633+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="7">
+        <firstname>Pal</firstname>
+        <lastname>Pen</lastname>
+        <birthdate>1993-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.633+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="8">
+        <firstname>Asm</firstname>
+        <lastname>Diciottesimo</lastname>
+        <birthdate>2000-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.634+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="9">
+        <firstname>Matias</firstname>
+        <lastname>Tavonatti</lastname>
+        <birthdate>1999-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Biking</name>
+            <description>Sample Description</description>
+            <place>Cycle lane 1</place>
+            <startdate>2017-10-18T15:57:55.635+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="10">
+        <firstname>Pinco</firstname>
+        <lastname>Pallo</lastname>
+        <birthdate>1990-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.636+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="11">
+        <firstname>Zio</firstname>
+        <lastname>Vec</lastname>
+        <birthdate>1943-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.636+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="12">
+        <firstname>Camilla</firstname>
+        <lastname>Scarton</lastname>
+        <birthdate>1996-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Biking</name>
+            <description>Sample Description</description>
+            <place>Cycle lane 1</place>
+            <startdate>2017-10-18T15:57:55.636+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="13">
+        <firstname>Gabriele</firstname>
+        <lastname>Scarton</lastname>
+        <birthdate>1993-02-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.636+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="14">
+        <firstname>Claudio</firstname>
+        <lastname>Congann</lastname>
+        <birthdate>1998-08-01Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.636+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="15">
+        <firstname>Fabio</firstname>
+        <lastname>Cilia</lastname>
+        <birthdate>1994-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Biking</name>
+            <description>Sample Description</description>
+            <place>Cycle lane 1</place>
+            <startdate>2017-10-18T15:57:55.637+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="16">
+        <firstname>Cofy</firstname>
+        <lastname>taqquino</lastname>
+        <birthdate>1993-03-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.637+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="17">
+        <firstname>Giulio</firstname>
+        <lastname>Dallatorre</lastname>
+        <birthdate>1993-03-24Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.637+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="18">
+        <firstname>Fatbardha</firstname>
+        <lastname>Hoxha</lastname>
+        <birthdate>1992-12-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Biking</name>
+            <description>Sample Description</description>
+            <place>Cycle lane 1</place>
+            <startdate>2017-10-18T15:57:55.637+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="19">
+        <firstname>Federica</firstname>
+        <lastname>Pezzoni</lastname>
+        <birthdate>1998-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>Hockey</name>
+            <description>Sample Description</description>
+            <place>Stadium</place>
+            <startdate>2017-10-18T15:57:55.637+02:00</startdate>
+        </activitypreference>
+    </person>
+    <person id="20">
+        <firstname>Roberta</firstname>
+        <lastname>Cilia</lastname>
+        <birthdate>1994-04-01Z</birthdate>
+        <activitypreference id="1">
+            <name>CrossFit</name>
+            <description>Sample Description</description>
+            <place>Park</place>
+            <startdate>2017-10-18T15:57:55.638+02:00</startdate>
+        </activitypreference>
+    </person>
+</people>

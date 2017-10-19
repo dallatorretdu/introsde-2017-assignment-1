@@ -1,0 +1,32 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="people">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="person" maxOccurs="unbounded"
+					minOccurs="0" type="person" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="person">
+		<xs:sequence>
+			<xs:element type="xs:string" name="firstname" />
+			<xs:element type="xs:string" name="lastname" />
+			<xs:element type="xs:date" name="birthdate" />
+			<xs:element name="activitypreference" maxOccurs="unbounded"
+				minOccurs="0" type="activityPreference" />
+		</xs:sequence>
+		<xs:attribute type="xs:int" name="id" />
+	</xs:complexType>
+
+	<xs:complexType name="activityPreference">
+		<xs:sequence>
+			<xs:element type="xs:string" name="name" />
+			<xs:element type="xs:string" name="description" />
+			<xs:element type="xs:string" name="place" />
+			<xs:element type="xs:dateTime" name="startdate" />
+		</xs:sequence>
+		<xs:attribute type="xs:int" name="id" />
+	</xs:complexType>
+</xs:schema>
