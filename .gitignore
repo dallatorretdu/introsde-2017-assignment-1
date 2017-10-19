@@ -1,0 +1,29 @@
+# Ignore everything:
+*
+
+# Except for the themes directories:
+!build.xml
+!ivy.xml
+!people.xsd
+!people.xml
+!.gitignore
+
+!src/
+!src/*/
+!src/*/*/
+!src/*/*/*/
+!src/*/*/*/*
+!src/*/*/*/*/*
+!src/*/*/*/*/*/*
+!src/*/*/*/*/*/*/*
+!src/*/*/*/*/*/*/*/*
+
+!tests/
+!tests/*/
+!tests/*/*/
+!tests/*/*/*/
+!tests/*/*/*/*
+!tests/*/*/*/*/*
+!tests/*/*/*/*/*/*
+!tests/*/*/*/*/*/*/*
+!tests/*/*/*/*/*/*/*/*
