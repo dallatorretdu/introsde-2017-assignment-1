@@ -30,7 +30,7 @@ class PeopleMarshallerTest extends PeopleTestSuperclass{
 	@Test
 	void testMarshallingObjectReturnsCorrectXML() throws JAXBException {
 		OutputStream output = returnNewStringableOutputStream();
-		People people = generateExamplePeople();
+		People people = generateExamplePeople(5);
 		PeopleMarshaller.marshalToStream(people, output);
 		
 		String stringStream = output.toString();

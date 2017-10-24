@@ -36,10 +36,10 @@ public class PeopleTestSuperclass {
 		return output;
 	}
 	
-	protected People generateExamplePeople() {
+	protected People generateExamplePeople(int number) {
 		People people = new People();
 		PeopleGenerator peopleGenerator = new PeopleGenerator();
-		people.getPerson().addAll(peopleGenerator.generatePersonList(5));
+		people.getPerson().addAll(peopleGenerator.generatePersonList(number));
 		return people;
 	}
 	
