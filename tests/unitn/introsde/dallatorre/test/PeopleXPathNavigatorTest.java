@@ -13,69 +13,11 @@ import org.xml.sax.InputSource;
 
 import unitn.introsde.dallatorre.people.PeopleXPathNavigatorFunctions;
 
-class PeopleXPathNavigatorTest {
+class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	
 	private void assertEmptyString(String string) {
 		assertTrue(string.isEmpty());
 	}
-
-	private static Document loadXMLFromString(String xml) throws Exception
-	{
-	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	    DocumentBuilder builder = factory.newDocumentBuilder();
-	    InputSource is = new InputSource(new StringReader(xml));
-	    return builder.parse(is);
-	}
-	private Document getValidXmlSampleDocument() throws Exception {
-		Document document = loadXMLFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> "
-				+ "<people>\n" + 
-				"    <person id=\"0001\">\n" + 
-				"        <firstname>Bond R.</firstname>\n" + 
-				"        <lastname>Martin</lastname>\n" + 
-				"        <birthdate>1984-09-20</birthdate>\n" + 
-				"        <activitypreference id=\"100\">\n" + 
-				"            <name>Running</name>\n" + 
-				"            <description>Running to the Park</description>\n" + 
-				"            <place>Gocciadoro</place>\n" + 
-				"            <startdate>2017-10-13T11:50:00.0</startdate>\n" + 
-				"        </activitypreference>\n" + 
-				"    </person>\n" + 
-				"</people>");
-		return document;
-	}
-	private Document getValidXmlSampleDoubleDocument() throws Exception {
-		Document document = loadXMLFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> "
-				+ "<people>\n" + 
-				"    <person id=\"0001\">\n" + 
-				"        <firstname>Bond R.</firstname>\n" + 
-				"        <lastname>Martin</lastname>\n" + 
-				"        <birthdate>1984-09-20</birthdate>\n" + 
-				"        <activitypreference id=\"100\">\n" + 
-				"            <name>Running</name>\n" + 
-				"            <description>Running to the Park</description>\n" + 
-				"            <place>Gocciadoro</place>\n" + 
-				"            <startdate>2017-10-13T11:50:00.0</startdate>\n" + 
-				"        </activitypreference>\n" + 
-				"    </person>\n" + 
-				"    <person id=\"0002\">\n" + 
-				"        <firstname>Lollo</firstname>\n" + 
-				"        <lastname>Gagging</lastname>\n" + 
-				"        <birthdate>1999-01-01</birthdate>\n" + 
-				"        <activitypreference id=\"100\">\n" + 
-				"            <name>Biking</name>\n" + 
-				"            <description>Long distance training</description>\n" + 
-				"            <place>Bikelane</place>\n" + 
-				"            <startdate>2017-10-19T16:20:00.0</startdate>\n" + 
-				"        </activitypreference>\n" + 
-				"    </person>\n" + 
-				"</people>");
-		return document;
-	}
-	
-	private static int countLines(String str){
-		   String[] lines = str.split("\r\n|\r|\n");
-		   return  lines.length;
-		}
 	
 	@Test
 	void getActivityForEmptyXMLReturnsEmptyString() throws Exception {
