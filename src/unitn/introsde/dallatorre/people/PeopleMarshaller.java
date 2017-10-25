@@ -30,7 +30,7 @@ public class PeopleMarshaller {
 	}
 	
     public static JAXBElement<People> createPeople(People value) {
-        return new JAXBElement<People>(new QName("", "People"), People.class, null, value);
+        return new JAXBElement<People>(new QName("", "people"), People.class, null, value);
     } 
 
 }

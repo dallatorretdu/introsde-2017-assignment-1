@@ -23,7 +23,7 @@ public class PeopleMarshallerTest extends PeopleTestSuperclass{
 		
 		String stringStream = output.toString();
 		assertEquals(2, countLines(stringStream));
-		assertThat(stringStream, containsString("<People/>"));
+		assertThat(stringStream, containsString("<people/>"));
 		assertThat(stringStream, containsString("<?xml version="));
 	}
 
@@ -37,8 +37,8 @@ public class PeopleMarshallerTest extends PeopleTestSuperclass{
 		assertThat(countLines(stringStream), greaterThan(10));
 		assertThat("timestamp", countLines(stringStream), greaterThan(40));
 		assertThat("timestamp", countLines(stringStream), lessThan(100));
-		assertThat(stringStream, containsString("<People>"));
-		assertThat(stringStream, containsString("</People>"));
+		assertThat(stringStream, containsString("<people>"));
+		assertThat(stringStream, containsString("</people>"));
 		assertThat(stringStream, containsString("<person id=\"5\">"));
 		assertThat(stringStream, containsString("<activitypreference id=\"1\">"));
 		assertThat(stringStream, containsString("<name>CrossFit</name>"));

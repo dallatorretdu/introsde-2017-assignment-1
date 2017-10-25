@@ -20,8 +20,7 @@ public class PeopleGenerator {
 		try {
 			for (int i=0; i<number; i++) {
 				Person newPerson = new Person();
-				newPerson.setFirstname("Stefano");
-				newPerson.setLastname("Tavonatti");
+				generateName(i, newPerson);
 				newPerson.setId(i+1);
 				newPerson.setBirthdate(DatatypeFactory.newInstance().newXMLGregorianCalendar(1993, 04, 01, 0, 0, 0, 0, 0));
 				newPerson.getActivitypreference().addAll(generateActivityPreferenceList(i));
@@ -31,6 +30,29 @@ public class PeopleGenerator {
 			e.printStackTrace();
 		}
 		return personList;
+	}
+	private void generateName(int i, Person newPerson) {
+		if(i%5 == 0) {
+			newPerson.setFirstname("Stefano");
+			newPerson.setLastname("Tavonatti");
+		}
+		if(i%5 == 1) {
+			newPerson.setFirstname("Mattias");
+			newPerson.setLastname("Tavonatti");
+		}
+		if(i%5 == 2) {
+			newPerson.setFirstname("Manuel");
+			newPerson.setLastname("Dezulian");
+		}
+		if(i%5 == 3) {
+			newPerson.setFirstname("Michele");
+			newPerson.setLastname("Tigurro");
+		}
+
+		if(i%5 == 4) {
+			newPerson.setFirstname("Claudio");
+			newPerson.setLastname("Congann");
+		}
 	}
 
 	public List<ActivityPreference> generateActivityPreferenceList(int i) {

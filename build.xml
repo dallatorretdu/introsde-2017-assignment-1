@@ -142,16 +142,92 @@
 	<target name="execute.TEST" depends="test-compile">
 		<echo message="Executing Tests:" />
 		<junit printsummary="on" haltonfailure="yes" fork="true">
-		        <classpath>
-		          <path refid="classpath.test"/>
-		          <pathelement location="${test.build.dir}"/>
-		        </classpath>
-		        <formatter type="brief" usefile="false" />
-		        <batchtest>
-		            <fileset dir="${test.src.dir}" includes="**/*Test.java" />
-		        </batchtest>
-		    </junit>
+	        <classpath>
+	          <path refid="classpath.test"/>
+	          <pathelement location="${test.build.dir}"/>
+	        </classpath>
+	        <formatter type="brief" usefile="false" />
+	        <batchtest>
+	            <fileset dir="${test.src.dir}" includes="**/*Test.java" />
+	        </batchtest>
+	    </junit>
 	</target>
-
 	
+	<target name="execute.evaluation" depends="compile">
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 1:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation1" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 2:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation2" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 3:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation3" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 4:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation4" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="FILE SAVED TO Evaluation4.xml" />
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 4:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation4" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 5:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation5" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="\n______________________________" />
+		<echo message="\nExecuting Evaluation Script 6:" />
+		<java classname="unitn.introsde.dallatorre.people.evaluation.PeopleEvaluation6" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}">
+					<include name="**/*.jar" />
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<echo message="FILE SAVED TO Evaluation6.json" />
+		<echo message="FILES ARE NOT CLEANED" />
+		<echo message="\n______________________________" />
+		<echo message="END OF SCRIPT" />
+		</target>
 </project>
