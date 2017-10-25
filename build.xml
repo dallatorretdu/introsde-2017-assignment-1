@@ -55,6 +55,8 @@
 	<property name="build.dir" value="build" />
 	<property name="src.dir" value="src" />
 	<property name="lib.dir" value="lib" />
+	<property name="test.src.dir" value="tests" />
+	<property name="test.build.dir" value="buildTests" />
 	<property name="xjc.package" value="unitn.introsde.dallatorre.people.generated" />
 
 	<!-- ================================= 
@@ -70,7 +72,6 @@
 		<fileset dir="${lib.dir}" />
 	</path>
 
-
 	<path id="run.path.id">
 		<path refid="lib.path.id" />
 		<fileset dir="${build.dir}">
@@ -79,6 +80,11 @@
 			<exclude name="**/*Test*" />
 		</fileset>
 	</path>
+	
+	<path id="classpath.test">
+		<fileset dir="${lib.dir}" />
+	    <pathelement location="${build.dir}"/>
+	  </path>
 
 	<!-- PART 3: compilation and execution targets for this session -->
 	<target name="init" depends="install-ivy, resolve">
@@ -103,7 +109,7 @@
 		<xjc schema="people.xsd" destdir="${src.dir}" package="${xjc.package}" />
 	</target>
 
-	<target name="compile" depends="init, generate">
+	<target name="compile" depends="init">
 		<echo message="Compile target has been called" />
 		<javac srcdir="${src.dir}" destdir="${build.dir}" classpathref="lib.path.id" includeAntRuntime="false">
 		</javac>
@@ -126,16 +132,25 @@
 			</java>
 		</target>
 	
-	<target name="execute.TEST">
+	<target name="test-compile" depends="compile">
+	    <mkdir dir="${test.build.dir}"/>
+	    <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="true">
+	        <classpath refid="classpath.test"/>
+	    </javac>
+	</target>
+	
+	<target name="execute.TEST" depends="test-compile">
 		<echo message="Executing Tests:" />
-		<java classname="class with main name" classpath="${build.dir}">
-			<classpath>
-				<fileset dir="${lib.dir}">
-					<include name="**/*.jar" />
-					<include name="*.jar" />
-				</fileset>
-			</classpath>
-		</java>
+		<junit printsummary="on" haltonfailure="yes" fork="true">
+		        <classpath>
+		          <path refid="classpath.test"/>
+		          <pathelement location="${test.build.dir}"/>
+		        </classpath>
+		        <formatter type="brief" usefile="false" />
+		        <batchtest>
+		            <fileset dir="${test.src.dir}" includes="**/*Test.java" />
+		        </batchtest>
+		    </junit>
 	</target>
 
 	

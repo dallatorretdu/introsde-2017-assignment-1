@@ -1,26 +1,20 @@
 package unitn.introsde.dallatorre.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import java.io.StringReader;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 import unitn.introsde.dallatorre.people.PeopleXPathNavigatorFunctions;
 
-class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
+public class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	
 	private void assertEmptyString(String string) {
 		assertTrue(string.isEmpty());
 	}
 	
 	@Test
-	void getActivityForEmptyXMLReturnsEmptyString() throws Exception {
+	public void getActivityForEmptyXMLReturnsEmptyString() throws Exception {
 		Document document = loadXMLFromString("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?> "
 				+ "<people>"
 				+ "</people>");
@@ -29,14 +23,14 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	}
 	
 	@Test
-	void getActivityForNonExistentIDReturnsEmptyString() throws Exception {
+	public void getActivityForNonExistentIDReturnsEmptyString() throws Exception {
 		Document document = getValidXmlSampleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		assertEmptyString(navigator.getActivity(document, 2));
 	}
 	
 	@Test
-	void getActivityForValidIDReturnsString() throws Exception {
+	public void getActivityForValidIDReturnsString() throws Exception {
 		Document document = getValidXmlSampleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String activityPreference = navigator.getActivity(document, 1);
@@ -49,7 +43,7 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	
 	
 	@Test
-	void getActivityDescriptionForValidIDReturnsCorrectData() throws Exception {
+	public void getActivityDescriptionForValidIDReturnsCorrectData() throws Exception {
 		Document document = getValidXmlSampleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String activityPreference = navigator.getActivityDescription(document, 1);
@@ -58,7 +52,7 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	}
 	
 	@Test
-	void getActivityPlaceForValidIDReturnsCorrectData() throws Exception {
+	public void getActivityPlaceForValidIDReturnsCorrectData() throws Exception {
 		Document document = getValidXmlSampleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String activityPreference = navigator.getActivityPlace(document, 1);
@@ -67,7 +61,7 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	}
 	
 	@Test
-	void getAllPeopleReturnCorrectString() throws Exception {
+	public void getAllPeopleReturnCorrectString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleDetailedList(document);
@@ -77,7 +71,7 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 	}
 	
 	@Test
-	void getAllPeopleWithActivityStartedAfter() throws Exception {
+	public void getAllPeopleWithActivityStartedAfter() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017-10-14",">");
@@ -86,7 +80,7 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 		assertEquals(countLines(people),11);
 	}
 	@Test
-	void getAllPeopleWithActivityStartedEquals() throws Exception {
+	public void getAllPeopleWithActivityStartedEquals() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017-10-13","=");
@@ -95,21 +89,21 @@ class PeopleXPathNavigatorTest extends PeopleTestSuperclass{
 		assertEquals(countLines(people),11);
 	}
 	@Test
-	void getAllPeopleWithActivityInexistentReturnEmptyString() throws Exception {
+	public void getAllPeopleWithActivityInexistentReturnEmptyString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017-10-13","<");
 		assertEmptyString(people);
 	}
 	@Test
-	void getAllPeopleWithActivityUsingMalformedDataReturnsEmptyString() throws Exception {
+	public void getAllPeopleWithActivityUsingMalformedDataReturnsEmptyString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017100-S3","<");
 		assertEmptyString(people);
 	}
 	@Test
-	void getAllPeopleWithActivityUsingMalformedOperatorReturnsEmptyString() throws Exception {
+	public void getAllPeopleWithActivityUsingMalformedOperatorReturnsEmptyString() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
 		String people = navigator.getPeopleWithActivityStartDate(document,"2017-10-13","ASD");

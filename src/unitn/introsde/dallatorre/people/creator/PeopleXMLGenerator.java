@@ -3,22 +3,13 @@ package unitn.introsde.dallatorre.people.creator;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
-import unitn.introsde.dallatorre.people.generated.ActivityPreference;
 import unitn.introsde.dallatorre.people.generated.People;
-import unitn.introsde.dallatorre.people.generated.Person;
 
 public class PeopleXMLGenerator extends PeopleGenerator {
 	

@@ -1,6 +1,6 @@
 package unitn.introsde.dallatorre.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.number.OrderingComparison.*;
@@ -8,15 +8,15 @@ import java.io.OutputStream;
 
 import javax.xml.bind.JAXBException;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import unitn.introsde.dallatorre.people.PeopleMarshaller;
 import unitn.introsde.dallatorre.people.generated.People;
 
-class PeopleMarshallerTest extends PeopleTestSuperclass{
+public class PeopleMarshallerTest extends PeopleTestSuperclass{
     
 	@Test
-	void testMarshallingEmptyObjectreturnsEmptyXML() throws JAXBException {
+	public void testMarshallingEmptyObjectreturnsEmptyXML() throws JAXBException {
 		OutputStream output = returnNewStringableOutputStream();	    
 		People emptyPeople = new People();
 		PeopleMarshaller.marshalToStream(emptyPeople, output);
@@ -28,7 +28,7 @@ class PeopleMarshallerTest extends PeopleTestSuperclass{
 	}
 
 	@Test
-	void testMarshallingObjectReturnsCorrectXML() throws JAXBException {
+	public void testMarshallingObjectReturnsCorrectXML() throws JAXBException {
 		OutputStream output = returnNewStringableOutputStream();
 		People people = generateExamplePeople(5);
 		PeopleMarshaller.marshalToStream(people, output);

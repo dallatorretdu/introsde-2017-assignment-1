@@ -50,6 +50,9 @@
         <!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency org="junit" name="junit" rev="4.12"/>
 		<dependency org="org.hamcrest" name="hamcrest-all" rev="1.3"/>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.9.2"/>
+		
         
     </dependencies>
 	

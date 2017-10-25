@@ -1,19 +1,17 @@
 package unitn.introsde.dallatorre.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import java.io.File;
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.w3c.dom.Document;
 
 import unitn.introsde.dallatorre.people.PeopleUnMarshaller;
 import unitn.introsde.dallatorre.people.generated.People;
 
-class PeopleUnMarshallerTest extends PeopleTestSuperclass{
+public class PeopleUnMarshallerTest extends PeopleTestSuperclass{
 
 	@Test
-	void TestUnmarshallingWorksCorrectly() throws Exception {
+	public void TestUnmarshallingWorksCorrectly() throws Exception {
 		Document document = getValidXmlSampleDocument();
 		PeopleUnMarshaller unMarshaller = new PeopleUnMarshaller();
 		People people = unMarshaller.unMarshal(document);
@@ -24,7 +22,7 @@ class PeopleUnMarshallerTest extends PeopleTestSuperclass{
 	}
 	
 	@Test
-	void TestUnmarshallingWorksCorrectlyWithMoreData() throws Exception {
+	public void TestUnmarshallingWorksCorrectlyWithMoreData() throws Exception {
 		Document document = getValidXmlSampleDoubleDocument();
 		PeopleUnMarshaller unMarshaller = new PeopleUnMarshaller();
 		People people = unMarshaller.unMarshal(document);
