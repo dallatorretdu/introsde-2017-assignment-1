@@ -101,6 +101,10 @@
 		<echo message="${src.dir}/${xjc.package} has been deleted" />
 		<delete file="sample_people.xml" />
 		<echo message="sample_people.xml has been deleted" />
+		<delete file="Evaluation4.xml" />
+		<echo message="Evaluation4.xml has been deleted" />
+		<delete file="Evaluation6.json" />
+		<echo message="Evaluation6.json has been deleted" />
 	</target>
 
 	<target name="generate" depends="init">
