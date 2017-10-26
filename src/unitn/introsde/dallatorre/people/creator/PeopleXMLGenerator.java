@@ -13,17 +13,17 @@ import unitn.introsde.dallatorre.people.generated.People;
 
 public class PeopleXMLGenerator extends PeopleGenerator {
 	
+	//Class to help me generate the starting XML file, starting from the XSD
+	//Saves in sample_people.xml
 	public void marshalXMLDocument(File xmlDocument) {
 		try {
 
 			JAXBContext jaxbContext = JAXBContext.newInstance(People.class);
-
 			Marshaller marshaller = jaxbContext.createMarshaller();
-
 			marshaller.setProperty("jaxb.formatted.output", new Boolean(true));
 
 			People people = new People();
-			people.getPerson().addAll(generatePersonList());
+			people.getPerson().addAll(generatePersonList());	//Generate a list of 20 persons, add them to People
 
 			marshaller.marshal(people, new FileOutputStream(xmlDocument));
 

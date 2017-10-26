@@ -11,20 +11,22 @@ import unitn.introsde.dallatorre.people.generated.People;
 
 public class PersonJSONMarshaller {
 
+	//Marshal the people object to a JSON file
 	public static void marshalToFile(People people, String filename) throws IOException {
 		ObjectMapper mapper = initializeMapper();
         mapper.writeValue(new File(filename), people);
 	}
-	
+	//Marshal people into a JSON string
 	public static String marshal(People people) throws JsonProcessingException {
 		ObjectMapper mapper = initializeMapper();
      	return mapper.writeValueAsString(people);
 	}
-	
+	//Executes the above printing directly in console
 	public static void marshalToConsole(People people) throws JsonProcessingException {
         System.out.println(marshal(people));
 	}
 	
+	//Generic mapper initialization, refactored in a method.
 	private static ObjectMapper initializeMapper() {
 		// Jackson Object Mapper 
 		ObjectMapper mapper = new ObjectMapper();

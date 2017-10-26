@@ -14,12 +14,15 @@ import unitn.introsde.dallatorre.people.PeopleXPathNavigatorFunctions;
 public class PeopleEvaluation1 {
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+		//Initialize navigator class (it's not static)
 		PeopleXPathNavigatorFunctions navigator = new PeopleXPathNavigatorFunctions();
+		//Document builder for parsing the XML
 		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
 		domFactory.setNamespaceAware(true);
 		DocumentBuilder builder = domFactory.newDocumentBuilder();
 		Document document = builder.parse("people.xml");
 		
+		//Print people list
 		System.out.println(navigator.getPeopleDetailedList(document));
 	}
 
